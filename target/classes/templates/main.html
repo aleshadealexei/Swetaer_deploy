@@ -22,8 +22,8 @@
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label>Сообщение</label>
-                <input type="text" name="text" placeholder="Введите текст" class="form-control invalidFeedback"
-                       th:classappend="${textError} ? 'is-invalid'"/>
+                <textarea name="text" placeholder="Введите текст" class="form-control invalidFeedback"
+                          th:classappend="${textError} ? 'is-invalid'"></textarea>
                 <div class="invalidFeedback" th:text="${textError}">
 
                 </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="form-row">
             <div class="col-md-3 mb-3">
-                <input type="file" name="file" placeholder="Выбери свой файл" value="null"/>
+                <input type="file" name="file" placeholder="Выбери свой файл" value="null" hidden/>
             </div>
         </div>
         <div class="form-row my-2 my-sm-3">

@@ -105,9 +105,19 @@ public class MainController {
 
     //поиск сообщений
     @PostMapping("/main/find")
-    public String find(Model model, @RequestParam String filter) {
+    public String find(Model model, @RequestParam String filter,
+                       @AuthenticationPrincipal User user,
+                       @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC, size = 3) Pageable pageable) {
+
+
         if (messageRepo.findByTag(filter) != null) {
-            model.addAttribute("messages", messageRepo.findByTag(filter));
+            User us1 = userRepo.findByUsername(user.getUsername());
+            Page<Message> messagePage = messageRepo.findByTag(filter, pageable);
+            Iterable<Message> messages =  messageRepo.findByTag(filter, pageable);
+            model.addAttribute("page", messagePage);
+            model.addAttribute("user", us1);
+            model.addAttribute("admin", user.getRoles().contains(Role.ADMIN));
+            model.addAttribute("messages", messages);
             return "main";
         } else {
             return "redirect:/main";

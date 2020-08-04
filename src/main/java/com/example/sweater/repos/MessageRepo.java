@@ -11,4 +11,5 @@ public interface MessageRepo extends CrudRepository<Message, Long> {
     List<Message> findByTag(String tag);
     List<Message> findAllByOrderByIdDesc();
     Page<Message> findAll(Pageable pageable);
+    Page<Message> findByTag(String tag,Pageable pageable);
 }

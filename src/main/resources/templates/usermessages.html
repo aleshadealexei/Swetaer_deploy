@@ -17,8 +17,6 @@
                     <a th:if="${podpisan}" class="btn btn-danger" th:href="'/user/unsubscribe/' + ${user.getId()}">Отписатся</a>
                     <a th:if="${nepodpisan}" class="btn btn-primary" th:href="'/user/subscribe/' + ${user.getId()}">Подписатся</a>
                 </div>
-                <p th:text="${podpisan} ? 'Вы подписаны на этого пользователя' : 'Вы не подписаны на этого пользователя'">
-                </p>
         </div>
         <div class="container">
             <div class="row">
@@ -63,7 +61,7 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label >Сообщение</label>
-                    <input th:value="${message}? ${message.getText()} : null" type="text" name="text" placeholder="Введите текст" class="form-control invalidFeedback" th:classappend="${textError} ? 'is-invalid'"/>
+                    <textarea th:value="${message}? ${message.getText()} : null" type="text" name="text" placeholder="Введите текст" class="form-control invalidFeedback" th:classappend="${textError} ? 'is-invalid'"></textarea>
                     <div class="invalidFeedback" th:text="${textError}">
 
                     </div>
@@ -73,7 +71,7 @@
                     <input th:value="${message}? ${message.getTag()} : null" type="text" name="tag" placeholder="Введите тэг" class="form-control "/><br>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <input type="file" name="file" placeholder="Выбери свой файл" />
+                    <input type="file" name="file" placeholder="Выбери свой файл" hidden/>
                 </div>
             </div>
             <div class="form-row my-2 my-sm-3">
