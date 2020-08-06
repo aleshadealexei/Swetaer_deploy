@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Sweater" />
         <module name="first-repo" />
+        <module name="Sweater" />
+        <module name="Sweater_end" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Sweater" options="-parameters" />
+      <module name="Sweater_end" options="-parameters" />
       <module name="first-repo" options="-parameters" />
     </option>
   </component>
